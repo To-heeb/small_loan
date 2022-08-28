@@ -41,3 +41,8 @@ Route::get('/view-clear', function () {
     $exitCode = Artisan::call('view:clear');
     return 'View cache cleared';
 });
+
+Route::get('/passport-install', function () {
+    $exitCode = Artisan::call('passport:install');
+    return 'Passport installation successful';
+});
