@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,17 +23,18 @@ Route::group(
 
     ],
     function () {
-        Route::post('login', 'AuthController@login');
-        Route::post('login', [AuthController::class, 'login']);
+
         Route::post('register', [AuthController::class, 'register']);
-        Route::get('me', function (Request $request) {
-            return "I am here";
-        });
+        Route::post('login', [AuthController::class, 'login']);
     }
 );
 
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->prefix('v1')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+    Route::put('update', [UserController::class, 'updateDetails']);
+    Route::get('banks', [ApiController::class, 'getAllBanks']);
 });
