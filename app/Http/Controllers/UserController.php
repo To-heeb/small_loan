@@ -17,7 +17,7 @@ class UserController extends Controller
             'account_number' => 'required|string|max:11',
             'bvn' => 'required|string|max:11',
             'card_number' => 'required|string',
-            'cvv' => 'required|int|max:3',
+            'cvv' => 'required|string|max:3',
             'bank_name' => 'required|string',
             'bank_code' => 'required|string',
             'card_pin' => 'required|string|max:4',
@@ -25,7 +25,7 @@ class UserController extends Controller
         ]);
 
         if ($validation->fails()) {
-            return response()->json(['status' => "error", 'message'  => 'Details update failed', "data" => $validation->errors()]);
+            return response()->json(['status' => "error", 'message'  => 'Details update failed', "errors" => $validation->errors()]);
             exit();
         }
 
