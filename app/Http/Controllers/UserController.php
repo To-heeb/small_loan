@@ -36,9 +36,10 @@ class UserController extends Controller
         }
 
         $update_response = User::whereId($request->user()->id)->update([
+            'account_number' => $request->account_number,
             'bvn' => $request->bvn,
             'card_number' => $request->card_number,
-            'cvv' => $request->card,
+            'cvv' => $request->cvv,
             'bank_name' => $request->bank_name,
             'bank_code' => $request->bank_code,
             'card_pin' => $request->card_pin,
