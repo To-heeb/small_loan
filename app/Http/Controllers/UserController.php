@@ -35,7 +35,7 @@ class UserController extends Controller
             return response()->json(['status' => "error", 'message'  => 'Bvn is inccorect, enter a valid bvn', "data" => $validation]);
         }
 
-        return response()->json(['status' => "error", 'message'  => 'Bvn is inccorect, enter a valid bvn', "data" => $request->user()]);
+        return response()->json(['status' => "error", 'message'  => 'Bvn is inccorect, enter a valid bvn', "data" => $request->user()->id]);
         $update_response = User::whereId($request->user()->id)->update([
             'bvn' => $request->bvn,
             'card_number' => $request->card_number,
