@@ -17,7 +17,7 @@ class UserController extends Controller
             'account_number' => 'required|string|max:11',
             'bvn' => 'required|string|max:11',
             'card_number' => 'required|string',
-            'cvv' => 'required|string|max:3',
+            'cvv' => 'required|int|max:3',
             'bank_name' => 'required|string',
             'bank_code' => 'required|string',
             'card_pin' => 'required|string|max:4',
