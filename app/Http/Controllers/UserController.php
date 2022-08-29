@@ -67,7 +67,7 @@ class UserController extends Controller
             return $err;
         } else {
             if (isset($response)) {
-                return json_decode($response)["status"];
+                return json_decode($response)->status;
             }
         }
     }
