@@ -46,3 +46,8 @@ Route::get('/passport-install', function () {
     $exitCode = Artisan::call('passport:install');
     return 'Passport installation successful';
 });
+
+Route::get('/migrate-table', function () {
+    $exitCode = Artisan::call('migrate');
+    return 'Migrates table successfully';
+});
